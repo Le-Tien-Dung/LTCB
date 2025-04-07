@@ -18,6 +18,7 @@ int main() {
 		}
 	}
 	for(int i=0;i<n;i++){
-		printf("mang sau khi thay la %.1f\n",a[i]);
+		printf("mang sau khi thay la ");
+		printf("%d",a[i]);
 	}
 }

@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <math.h>
+void nhapdathuc(int heso[],int*bac){
+    printf("Moi ban nhap bac ");
+    scanf("%d",bac);
+    for(int i=*bac;i>=0;i--){
+        printf("nhap he so a%d ",i);
+        scanf("%d",&heso[i]);
+    }
+};
+void indathuc (int heso[],int bac){
+    for (int i=bac;i>=0;i--){
+        if(i==0){
+            printf("%d",heso[i]);
+        }
+        else{
+            printf("%dx^%d",heso[i],i);
+            printf("+");
+        }
+    }
+    printf("\n");
+}
+double tinh(int heso[],int bac,double x){
+    double giatri=0;
+    for(int i=bac;i>=0;i--){
+        giatri+=heso[i]*pow(x,i);
+        
+    }
+    return giatri;
+}
+void tongdathuc(int P[],int Q[],int T[],int bacP,int bacQ,int *bacT){
+    int hesoP; int hesoQ;
+    if(bacP>bacQ){
+        *bacT=bacP;
+    }else{
+        *bacT=bacQ;
+    }
+    for(int i=0;i<=*bacT;i++){
+        if (i <= bacP) {
+        hesoP = P[i];  
+        } else {
+            hesoP = 0;  
+            }
+
+    if(i<=bacQ) {
+        hesoQ=Q[i];  
+        } else {
+            hesoQ = 0;  
+            }
+    T[i]=hesoP +hesoQ;
+                    }
+}
+int main()
+{
+   int P[100];int Q[100];int T[100];
+   int bacT; int bacP;int bacQ;
+   double x;
+   printf("Moi ban nhap da thuc P\n");
+   nhapdathuc(P,&bacP);
+   printf("Moi ban nhap da thuc Q\n");
+   nhapdathuc(Q,&bacQ);
+   printf("Moi ban nhap so x ");
+   scanf("%lf",&x);
+   tinh(P,bacP,x);
+   tinh(Q,bacQ,x);
+   tongdathuc(P,Q,T,bacP,bacQ,&bacT);
+   printf("Da thuc P la\n");
+   indathuc(P,bacP);
+   printf("Da thuc Q la\n");
+   indathuc(Q,bacQ);
+   printf("Da thuc T la\n");
+   indathuc(T,bacT);
+   printf("Gia tri da thuc P voi x=%2lf la %lf \n",x,tinh(P,bacP,x));
+   printf("Gia tri da thuc Q voi x=%2lf la %lf \n",x,tinh(Q,bacQ,x));
+   printf("Gia tri da thuc T voi x=%2lf la %lf \n",x,tinh(T,bacT,x));
+    return 0;
+}

@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double x, exp, sin = 0, n;
+    int i = 0, k, j;
+    printf("Nhap so x (do): ");
+    scanf("%lf", &x);
+    printf("Nhap do chinh xac exp: ");
+    scanf("%lf", &exp);
+    x = (x * 3.14) / 180.0;
+    do {
+        k = 1;
+        for (j = 1; j <= 2 * i + 1; j++) {
+            k *= j;
+        }
+        n = pow(-1, i) * pow(x, 2 * i + 1) / k;
+        sin =sin + n; 
+        i++;
+    } while (fabs(n) > exp); 
+    printf("Sin(x) voi do chinh xac exp = %lf la: %lf\n", exp, sin);
+    return 0;
+}

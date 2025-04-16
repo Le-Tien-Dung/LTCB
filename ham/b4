@@ -1,0 +1,64 @@
+#include <stdio.h>
+ void nhapmang(int a[100][100], int* n,int* m,const char *ten){
+     printf("Nhap kich thuoc cua mang %s ",ten);
+     scanf("%d%d",n,m);
+     
+     printf("Moi ban nhap ham %s\n",ten);
+     for (int i=0;i<*n;i++){
+         for(int j=0;j<*m;j++){
+             scanf("%d", &a[i][j]);
+         }
+     }
+ }
+ void inmang(int a[100][100],int n,int m,const char *ten){
+     printf("Ma tran %s la\n",ten);
+     for (int i=0;i<n;i++){
+         for (int j=0;j<m;j++){
+             printf("%d ",a[i][j]);
+         }
+         printf("\n");
+     }
+ }
+ 
+ void tinhtong(int a[100][100],int b[100][100],int c[100][100],int n, int m){
+     for (int i=0;i<n;i++){
+         for(int j=0;j<m;j++){
+            c[i][j]=a[i][j]+b[i][j];
+         }
+     }
+     printf("Tong hai ma tran la \n");
+     for (int i=0;i<n;i++){
+         for(int j=0;j<m;j++){
+            printf("%d ",c[i][j]);
+         }
+         printf("\n");
+     }
+ }
+ void tinhtich(int a[100][100],int b[100][100],int c[100][100],int n, int m,int p){
+     for (int i=0;i<n;i++){
+         for(int j=0;j<m;j++){
+           c[i][j]=0;
+           for(int k=0;k<m;k++){
+                c[i][j]+=a[i][k]*b[k][j];
+           }
+         }
+     }
+     printf("Tich hai ma tran la \n");
+     for (int i=0;i<n;i++){
+         for(int j=0;j<m;j++){
+           printf("%d ",c[i][j]);
+         }
+         printf("\n");
+     }
+ }
+ int main()
+ { int n; int m; int p;
+ int a[100][100], b[100][100], c[100][100];
+   nhapmang(a,&n,&m,"1");
+   nhapmang(b,&n,&m,"2");
+   inmang(a,n,m,"1");
+   inmang(b,n,m,"2");
+   tinhtong(a,b,c,n,m);
+   tinhtich(a,b,c,n,m,p);
+     return 0;
+ }

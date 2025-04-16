@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double x, exp, e = 1, n;
+    int i = 1, k, j;
+    printf("Nhap so x: ");
+    scanf("%lf", &x);
+    printf("Nhap do chinh xac exp: ");
+    scanf("%lf", &exp);
+    do {
+        k = 1;
+        for (j = 1; j <=  i ; j++) {
+            k =k* j;
+        }
+        n = pow(x,i)/k;
+        e = e+n ;
+        i++;
+    } while (fabs(n) > exp); 
+    printf("e mu x voi do chinh xac exp = %lf la: %lf\n", exp, e);
+    return 0;
+}

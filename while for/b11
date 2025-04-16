@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+    printf("Nhap so thap phan: ");
+    int n,t;
+    scanf("%d", &n);
+    t=n;
+    
+    long  a = 0, b = 1;
+    while (n > 0) {
+        a = a + ((n % 2) * b);
+        b *= 10;
+        n =n/ 2;
+    }
+
+    printf("So nhi phan: %ld\n", a);
+    long  x = 0, y = 1;
+    n=t;
+    while (n > 0) {
+        x = x + ((n % 8) * y);
+        y =y*10;
+        n =n/ 8;
+    }
+
+    printf("So bat phan: %ld\n", x);
+    long  e = 0, d = 1;
+    n=t;
+    while (n > 0) {
+        e = e + ((n % 16) * d);
+        d =d*10;
+        n =n/ 16;
+    }
+
+    printf("So luc phan: %ld", e);
+    return 0;
+}

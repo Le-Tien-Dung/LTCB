@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main() {
+    float tien;
+    int thang;
+    printf("moi ban nhap so tien ");
+    scanf("%f",&tien);
+    printf("moi ban nhap so thang");
+    scanf("%d",&thang);
+    for (int i=1;i<=thang;i++){
+        tien=tien+tien*0.0045;
+    }
+    printf("so tien can tim la %f",tien);
+    return 0;
+}

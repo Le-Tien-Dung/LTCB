@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main()
+{
+    printf("moi ban nhap so ");
+    int n;
+    float x=0;
+    int a=1;
+    float sum=0;
+    scanf("%d", &n);
+    for (int i=1;i<=n;i++ ){
+        a=a*i;
+        x=1.0/a;
+        sum=sum+x;      
+    }
+    printf("S=%f",sum);
+    return 0;
+}

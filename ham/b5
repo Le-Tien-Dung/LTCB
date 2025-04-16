@@ -1,0 +1,32 @@
+#include <stdio.h>
+void chuyendoi(int so, int he){
+    int dem=0;
+    char ketqua[100];
+    char kitu[]="01234567ABCDEF";
+    if (so==0){
+        return 0;
+    }
+    while(so>0){
+        ketqua[dem++]=kitu[so%he];
+        so/=he;
+    }
+    for (int i=dem-1;i>=0;i--){
+        printf("%c",ketqua[i]);
+    }
+}
+int main()
+{
+    int so; 
+    printf("Moi ban nhap so ");
+    scanf("%d",&so);
+    printf("He nhi phan la ");
+    chuyendoi(so,2);
+    printf("\n");
+    printf("He bat phan la ");
+    chuyendoi(so,8);
+    printf("\n");
+    printf("He luc phan la ");
+    chuyendoi(so,16);
+
+    return 0;
+}
